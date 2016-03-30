@@ -54,12 +54,13 @@ namespace Hanabi
                     if (command.Contains("Tell rank"))
                         CommandTellRank.TellRank();
                     if (command.Contains("Tell color"))
-                        CommandTellColor.TellColor(firstPlayersCard, secondPlayersCard, command, course);
+                       rezult=CommandTellColor.TellColor(firstPlayersCard, secondPlayersCard, command, course);
                     if (command.Contains("Drop card"))
                         CommandDropCard.DropCard(firstPlayersCard, secondPlayersCard, deck, command, course);
                     if (rezult == true)
                         break;
                     countCourse++;
+                    Console.WriteLine(CommandTellColor.redColor[0] + " " + CommandTellColor.redColor[1] + " " + CommandTellColor.redColor[2] + " " + CommandTellColor.redColor[3] + " " + CommandTellColor.redColor[4]);
                     Console.WriteLine("Turn: {0}, Score: {1}, Finished: {2}", countCourse, countPlayingCards, rezult);
                     CountCurentPlayer(firstPlayersCard, secondPlayersCard, countCourse);
                     Console.WriteLine("Table: R{0} G{1} B{2} W{3} Y{4}", CommandPlayCard.redCardsForTable, CommandPlayCard.greenCardsForTable, CommandPlayCard.blueCardsForTable, CommandPlayCard.whiteCardsForTable, CommandPlayCard.yellowCardsForTable);
