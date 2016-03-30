@@ -1,0 +1,6 @@
+C:\Users\User\Desktop\Контур\Hanabi\Hanabi\Hanabi\bin\Debug\Hanabi.exe.config
+C:\Users\User\Desktop\Контур\Hanabi\Hanabi\Hanabi\bin\Debug\Hanabi.exe
+C:\Users\User\Desktop\Контур\Hanabi\Hanabi\Hanabi\bin\Debug\Hanabi.pdb
+C:\Users\User\Desktop\Контур\Hanabi\Hanabi\Hanabi\obj\Debug\Hanabi.exe
+C:\Users\User\Desktop\Контур\Hanabi\Hanabi\Hanabi\obj\Debug\Hanabi.pdb
+C:\Users\User\Desktop\Контур\Hanabi\Hanabi\Hanabi\obj\Debug\Hanabi.csprojResolveAssemblyReference.cache
