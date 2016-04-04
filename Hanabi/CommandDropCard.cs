@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Hanabi
 {
     class CommandDropCard
     {
         
-        static int value = 0;
+      
         
         public static void DropCard(string[] firstPlayerCards, string[] secondPlayerCards, string[] deck, string command, int course)
         {
+            int value = 0;
             command = command.Remove(0, 10);
             value = Convert.ToInt32(command.Substring(0));
             

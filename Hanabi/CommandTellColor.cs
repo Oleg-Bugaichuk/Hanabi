@@ -13,13 +13,14 @@ namespace Hanabi
         public static int[] blueColor = new int[5];
         public static int[] whiteColor = new int[5];
         public static int[] yellowColor = new int[5];
-        static bool rezult = false;
+         
         
 
         public static bool TellColor(string[] firstPlayerCards, string[] secondPlayerCards, string command, int course)
         {
             command = command.Remove(0, 11);
             string color = command.Remove(1);
+            bool rezult = false;
             
             if (course % 2 != 0)
             {
@@ -27,23 +28,23 @@ namespace Hanabi
                 { 
                     case "R":
                         command = command.Remove(0, 14);
-                        Tell(firstPlayerCards, command, color,redColor);
+                        Tell(firstPlayerCards, command, color, redColor, rezult);
                         break;
                     case "G":
                         command = command.Remove(0, 16);
-                        Tell(firstPlayerCards, command, color,greenColor);
+                        Tell(firstPlayerCards, command, color, greenColor, rezult);
                         break;
                     case "Y":
                         command = command.Remove(0, 17);
-                        Tell(firstPlayerCards, command, color, yellowColor);
+                        Tell(firstPlayerCards, command, color, yellowColor, rezult);
                         break;
                     case "B":
                         command = command.Remove(0, 15);
-                        Tell(firstPlayerCards, command, color, blueColor);
+                        Tell(firstPlayerCards, command, color, blueColor, rezult);
                         break;
                     case "W":
                         command = command.Remove(0, 16);
-                        Tell(firstPlayerCards, command, color, whiteColor);
+                        Tell(firstPlayerCards, command, color, whiteColor, rezult);
                         break;
                 }
                 
@@ -54,23 +55,23 @@ namespace Hanabi
                 {
                     case "R":
                         command = command.Remove(0, 14);
-                        Tell(secondPlayerCards, command, color, redColor);
+                        Tell(secondPlayerCards, command, color, redColor, rezult);
                         break;
                     case "G":
                         command = command.Remove(0, 16);
-                        Tell(secondPlayerCards, command, color, greenColor);
+                        Tell(secondPlayerCards, command, color, greenColor, rezult);
                         break;
                     case "Y":
                         command = command.Remove(0, 17);
-                        Tell(secondPlayerCards, command, color, yellowColor);
+                        Tell(secondPlayerCards, command, color, yellowColor, rezult);
                         break;
                     case "B":
                         command = command.Remove(0, 15);
-                        Tell(secondPlayerCards, command, color, blueColor);
+                        Tell(secondPlayerCards, command, color, blueColor, rezult);
                         break;
                     case "W":
                         command = command.Remove(0, 16);
-                        Tell(secondPlayerCards, command, color, whiteColor);
+                        Tell(secondPlayerCards, command, color, whiteColor, rezult);
                         break;
                 }
             }
@@ -80,7 +81,7 @@ namespace Hanabi
         }
 
 
-        static void Tell(string[] player, string value, string color, int[] tellingColor)
+        static void Tell(string[] player, string value, string color, int[] tellingColor, bool rezult)
         {
 
             

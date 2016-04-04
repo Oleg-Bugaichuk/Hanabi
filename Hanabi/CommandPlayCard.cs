@@ -12,11 +12,8 @@ namespace Hanabi
         public static int[] blueCards = new int[5];//синие сыграные карты
         public static int[] yellowCards = new int[5];//желтые сыграные карты
         public static int[] greenCards = new int[5];//зеленные сыграные карты
-        public static int redCardsForTable = 0;
-        public static int whiteCardsForTable = 0;
-        public static int blueCardsForTable = 0;
-        public static int yellowCardsForTable = 0;
-        public static int greenCardsForTable = 0;
+   
+        
 
         public static bool PlayCard(string[] firstPlayerCards, string[] secondPlayerCards, string[] deck, string command, int course)
         {
@@ -31,27 +28,13 @@ namespace Hanabi
             if (course % 2 != 0)
             {
                rezult= Play(firstPlayerCards,rezult , value, deck);
-
             }
-
             else
             {
                 rezult = Play(secondPlayerCards, rezult, value, deck);    
             }
 
-            for (int i = 0; i <= 4; i++)
-            {
-                if (redCrads[i] != 0)
-                    redCardsForTable++;
-                if (whiteCards[i] != 0)
-                    whiteCardsForTable++;
-                if (blueCards[i] != 0)
-                    blueCardsForTable++;
-                if (yellowCards[i] != 0)
-                    yellowCardsForTable++;
-                if (greenCards[i] != 0)
-                    greenCardsForTable++;
-            }
+            
 
             return rezult;
         }
@@ -79,7 +62,7 @@ namespace Hanabi
                         else
                         {
                             rezult = true;
-                            break;
+                            
                         }
 
                     }
@@ -107,7 +90,7 @@ namespace Hanabi
                         else
                         {
                             rezult = true;
-                            break;
+                           
                         }
                     }
                     else
@@ -133,7 +116,7 @@ namespace Hanabi
                         else
                         {
                             rezult = true;
-                            break;
+                            
                         }
                     }
                     else
@@ -160,7 +143,7 @@ namespace Hanabi
                         else
                         {
                             rezult = true;
-                            break;
+                           
                         }
                     }
                     else
@@ -187,7 +170,7 @@ namespace Hanabi
                         else
                         {
                             rezult = true;
-                            break;
+                            
                         }
                     }
                     else
@@ -203,6 +186,7 @@ namespace Hanabi
            { 
                 int countForDeck = 0;
                 playerForVoidPlay[value] = null;
+                
                 for (int i = 0; i <= deckForVoidPlay.Length; i++)
                 {
                     if (deckForVoidPlay[countForDeck] == null)

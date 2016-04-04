@@ -15,6 +15,8 @@ namespace Hanabi
         static string[] secondPlayersCard = new string[5];
         static string[] deck = new string[15];
         static bool rezult = false;
+        static StreamReader str = new StreamReader("1-1.in");
+        static int countPlayingCards = 0;
 
         static void Main(string[] args)
         {
@@ -36,41 +38,62 @@ namespace Hanabi
                 secondPlayersCard = UpdateDeck.secondPlayer;//массив карт на руках второго игрока
                 deck = UpdateDeck.Update(enteriesCards);//массив карт оставшихся в колоде
                 int countCourse = 0;//подсчет ходов
-                int countPlayingCards = 0;//подсчет сыгранных карт.
-                Console.WriteLine("Turn: {0}, Score: {1}, Finished: {2}", countCourse, countPlayingCards, rezult);
-                CountCurentPlayer(firstPlayersCard, secondPlayersCard, countCourse);
-                Console.WriteLine("Table: R{0} G{1} B{2} W{3} Y{4}", CommandPlayCard.redCardsForTable, CommandPlayCard.greenCardsForTable, CommandPlayCard.blueCardsForTable, CommandPlayCard.whiteCardsForTable, CommandPlayCard.yellowCardsForTable);
+                
+                
 
                 for (int course = 1; ; course++)
                 {
-                    string command = Console.ReadLine().ToString();
-
+                    string command ;
+                    command = Console.ReadLine();
+                   
 
                     if (command.Contains("Play card"))
                     {
                         rezult = CommandPlayCard.PlayCard(firstPlayersCard, secondPlayersCard, deck, command, course);
-                        countPlayingCards++;
+                        if (rezult == false)
+                            countPlayingCards++;
+
                     }
-                    if (command.Contains("Tell rank"))
-                        CommandTellRank.TellRank();
+
+                    //if (command.Contains("l;jjj;jjjjjj"))
+                      //  CommandTellRank.TellRank();
+
                     if (command.Contains("Tell color"))
                        rezult=CommandTellColor.TellColor(firstPlayersCard, secondPlayersCard, command, course);
+
                     if (command.Contains("Drop card"))
                         CommandDropCard.DropCard(firstPlayersCard, secondPlayersCard, deck, command, course);
+
                     if (rezult == true)
+                    {
+                        countCourse++;
                         break;
-                    countCourse++;
-                    Console.WriteLine(CommandTellColor.redColor[0] + " " + CommandTellColor.redColor[1] + " " + CommandTellColor.redColor[2] + " " + CommandTellColor.redColor[3] + " " + CommandTellColor.redColor[4]);
-                    Console.WriteLine("Turn: {0}, Score: {1}, Finished: {2}", countCourse, countPlayingCards, rezult);
-                    CountCurentPlayer(firstPlayersCard, secondPlayersCard, countCourse);
-                    Console.WriteLine("Table: R{0} G{1} B{2} W{3} Y{4}", CommandPlayCard.redCardsForTable, CommandPlayCard.greenCardsForTable, CommandPlayCard.blueCardsForTable, CommandPlayCard.whiteCardsForTable, CommandPlayCard.yellowCardsForTable);
+                    }
+                    else
+                    {
+                        countCourse++;
+                    }
+                    
 
                 }
 
                 Console.WriteLine("Turn: {0}, cards: {1}, with risk: 0", countCourse, countPlayingCards);
-                Console.WriteLine("Turn: {0}, Score: {1}, Finished: {2}", countCourse, countPlayingCards, rezult);
-                CountCurentPlayer(firstPlayersCard, secondPlayersCard, countCourse);
-                Console.WriteLine("Table: R{0} G{1} B{2} W{3} Y{4}", CommandPlayCard.redCardsForTable, CommandPlayCard.greenCardsForTable, CommandPlayCard.blueCardsForTable, CommandPlayCard.whiteCardsForTable, CommandPlayCard.yellowCardsForTable);
+                for (int i = 0; i <= 4; i++)
+                {
+                    CommandPlayCard.redCrads[i] = 0;
+                    CommandPlayCard.blueCards[i] = 0;
+                    CommandPlayCard.whiteCards[i] = 0;
+                    CommandPlayCard.yellowCards[i] = 0;
+                    CommandPlayCard.greenCards[i] = 0;
+                    countPlayingCards = 0;
+                    CommandTellColor.blueColor[i] = 0;
+                    CommandTellColor.greenColor[i] = 0;
+                    CommandTellColor.redColor[i] = 0;
+                    CommandTellColor.whiteColor[i] = 0;
+                    CommandTellColor.yellowColor[i] = 0;
+                }
+
+                
                 
                 
             }
@@ -80,23 +103,13 @@ namespace Hanabi
 
         static string EnterData()//метод ввода начальных данных
         {
-            enteriesCards = Console.ReadLine();
-            return enteriesCards;
+           
+                enteriesCards = Console.ReadLine();
+           
+                return enteriesCards;
         }
 
-        static void CountCurentPlayer(string[] firstPlayer, string[] secondPlayer, int courseCount)
-        {
-            if (courseCount % 2 == 0)
-            {
-                Console.WriteLine("Current Player: " + firstPlayer[0] + " " + firstPlayer[1] + " " + firstPlayer[2] + " " + firstPlayer[3] + " " + firstPlayer[4]);
-                Console.WriteLine("Next Player: " + secondPlayer[0] + " " + secondPlayer[1] + " " + secondPlayer[2] + " " + secondPlayer[3] + " " + secondPlayer[4]);
-            }
-            else
-            {
-                Console.WriteLine("Current Player: " + secondPlayer[0] + " " + secondPlayer[1] + " " + secondPlayer[2] + " " + secondPlayer[3] + " " + secondPlayer[4]);
-                Console.WriteLine("Next Player: " + firstPlayer[0] + " " + firstPlayer[1] + " " + firstPlayer[2] + " " + firstPlayer[3] + " " + firstPlayer[4]);
-            }
-        }
+       
 
         
 

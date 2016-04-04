@@ -10,7 +10,7 @@ namespace Hanabi
     {
         public static void TellRank()
         {
-            Console.WriteLine("Tel rank");
+            
         }
     }
 }
